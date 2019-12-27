@@ -1,0 +1,17 @@
+.home{
+    padding-top: 10px;
+}
+
+.submit-home{
+    margin: 10px;
+    width: 100px;
+}
+.form-login{
+    font-size: small;
+    margin: 5px;
+    padding: 5px;
+}
+
+[scroll-glue-right]{
+    overflow-x: auto;
+}

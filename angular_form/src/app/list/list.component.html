@@ -1,0 +1,145 @@
+<H3 align="center">TABLE OF CONTENT</H3>
+
+<div align="right" class="container">
+
+<div class="row">
+<div class="col-lg-6">
+
+
+</div>   
+ <div class="col-lg-6 filter_list">
+
+<!-- section: to toggle add filters, to cancel filter, sorting  -->
+<form>
+  <button class="btn-info btn-filter-menu btn form-group"  (click)="Add_filters()">Add Filters</button> 
+
+
+  
+  <button class="btn-danger btn-filter-menu btn form-group"  (click)="Clear_filter()">Clear Filters</button>
+
+  <select class=" btn-filter-menu form-control custom-select form-group" name="Sort" [(ngModel)]="Addsort1">
+    <option name="select sort type" value=""  disabled>Select Sort-Type</option>
+    <option name="Date of Modification" value="modified" selected>Date of Modification</option>
+    <option name="Date of Creation" value="creation">Date of Creation</option>
+
+ </select>
+
+  <button style="opacity: 70%; width: max-width content !important;" class="btn  btn-filter-menu btn-info form-group" (click)="toggle_sort_way()"><i [class]="arrow"></i>
+  </button>
+ 
+  <button class="btn-info btn-filter-menu btn form-group"  (click)="Add_Sort()">Sort</button>
+
+</form>
+<!-- section closes -->
+
+</div>
+</div>
+
+
+
+<!-- section to add filters  -->
+
+<div ng-controller="MyCtrl">
+<form class="form-small filter-input container-fluid">
+<div class="row filter_list"  *ngIf="addFilter" >
+  <angular2-multiselect [data]="sctemp"  name="stationcode" [(ngModel)]="filter_sc" [settings]="dropdownSettings" (onDeSelectAll)="onDeSelectAll(filter_sc)">
+  </angular2-multiselect>
+
+  <div class="col-lg-3 form-group">
+    <input type="text" placeholder="Pravesh ID" class="form-control" name="praveshid"  [(ngModel)]="filter_pid">
+  </div>
+  <div class="col-lg-3 form-group">
+    <angular2-multiselect [data]="satemp"  name="stationassociate" [(ngModel)]="filter_sa" [settings]="dropdownSettings1">
+    </angular2-multiselect>
+  </div>
+    <div class="col-lg-2">
+    <button style="opacity: 70%; width: fit-content;"  class="btn btn-info  form-control" (click)="Add_filter()">Apply</button>
+</div>
+</div>
+</form>
+</div>
+
+<!-- add filter section closes -->
+
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+
+<!-- section: paging -->
+
+<form class="col-lg-6">
+  <button style="opacity: 70%" class="btn btn-info btn-filter-menu form-group" (click)="set_currentp(0)">first page</button>
+  <button style="opacity: 70%" class="btn btn-info btn-filter-menu form-group"(click)="next_page()">next page</button>
+  <button style="opacity: 70%" class="btn btn-info btn-filter-menu form-group"(click)="prev_page()">prev page</button>
+ <label class="btn-filter-menu form-group"> Page Showing: {{this.pcurrent}}-{{this.pageshowing()}}/{{this.pagecount}} </label>
+  </form >
+
+<!-- paging section closes   -->
+  
+  <div class="col-lg-6 filter-list">
+   
+
+    <!-- section: view filters -->
+    <table *ngIf="filterif" class="table table-filter table-bordered">
+      <thead>
+        <tr>
+          <td >Filters</td>
+          <td scope="col">Station Code: {{this.ListFilterAddMultiple2[0]}}</td>
+          <td scope="col">Pravesh ID: {{this.ListFilterAddMultiple2[1]}}</td>
+          <td scope="col">Station Associate: {{this.ListFilterAddMultiple2[2]}}
+          </td>
+        </tr>
+</thead>
+</table>
+<!-- section: view filter closes -->
+
+  </div>
+  </div>
+</div>
+
+<div style="overflow-x:auto;">  
+<table width="auto" scroll-glue-right class="table table1">
+  <col width="200">
+    <thead>
+        <tr>
+          <th><button class="btn" [ngClass]="Select_Multiple()" ngbAutofocus (click)="Execute_Multiple()">{{SelectMultiple}}</button></th>
+            <th>Status</th>
+          <th>Station Code</th>
+          <th>Pravesh ID</th>
+          <th>Station Associate</th>
+          <th>Type of Associate</th>
+          <th>Type of Calculation</th>
+          <th>SLSP Templates</th>
+          <th>Vehicle used</th>
+          <th>Total Small Rate</th>
+          <th>Total Large Rate</th>
+          <th>Total Pickup Rate</th>
+          <th>Reasons</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+    <thead *ngFor="let instance of user3"> 
+        <tr>
+          <th><input type="checkbox" ngModel (click)="Multiple_Update(instance.name, instance.status, this.ngModel )"></th>    
+       <th> <button class="btn" [disabled]="isnotAdmin()" [ngClass]="toggle_class(instance.status)" (click)="Status_change(instance.name)">{{instance.status}}</button></th>
+        <th>{{instance.stationcode}}</th>
+        <th>{{instance.praveshid}}</th>
+        <th>{{instance.stationassociate}}</th>
+        <th>{{instance.typeofassociate}}</th>
+        <th>{{instance.typeofcalculation}}</th> 
+        <th>{{instance.slsptemplates}}</th>
+        <th>{{instance.vehicleused}}</th>
+        <th>{{instance.totalsmallrate}}</th>
+        <th>{{instance.totallargerate}}</th>
+        <th>{{instance.totalpickuprate}}</th>
+        <th>{{instance.reasons}}</th>
+        <th>{{instance.remarks}}</th>
+      </tr>
+    </thead>
+    </table>
+    </div>
+
+

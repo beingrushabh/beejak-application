@@ -1,0 +1,23 @@
+.form-small {
+    padding-top: 20px;
+  }
+  .form-group {
+    font-size: 13px;
+  }
+  .custom-select {
+    font-size: 13px;
+    width: 273px;
+    border-bottom: solid 1px #ccc;
+  }
+  .form-control {
+    font-size: 13px;
+    width: 273px;
+    border-bottom: solid 1px #ccc;
+  }
+  .submit-btn {
+    margin-right: 11px;
+    height: 40px;
+    width: 100px;
+    text-align: center;
+  }
+  

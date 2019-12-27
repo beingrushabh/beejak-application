@@ -1,0 +1,128 @@
+
+<div class="container">
+    <div class="row">
+  <div class="col-lg-3">
+  </div>
+  <div class="col-lg-6">
+    
+  <div class="container-fluid">
+      <form #userform = ngForm name="form" class="form-small" (ngSubmit)="onSubmit()" >
+  
+      <div class="form-group row">  
+          <label class="col-lg-5">Station Code</label>
+          <div class="col-lg-7">
+          <input type="text" name="StationCode" required #name="ngModel" [(ngModel)]="userModel.stationcode" class="form-control" [class.is-invalid]="name.invalid && name.touched" >
+          <small class="text-danger" [class.d-none]="name.valid || name.untouched">feild is required</small>   
+          </div>
+      </div> 
+      
+      
+      <div class="form-group row">
+          <label class="col-lg-5">Pravesh ID</label>
+          <div class="col-lg-7">
+          <input type="text" name="PraveshID" required #pravesh="ngModel"  [(ngModel)]="userModel.praveshid" class="form-control" [class.is-invalid]="pravesh.invalid && pravesh.touched">
+          <small class="text-danger" [class.d-none]="pravesh.valid || pravesh.untouched">feild is required</small>   
+          </div> 
+    </div>   
+      
+      
+      <div class="form-group row">
+          <label class="col-lg-5">Station Associate</label>
+          <div class="col-lg-7">
+          <input type="text" required  #stationa="ngModel" name="StationAssociate"  [(ngModel)]="userModel.stationassociate" class="form-control" [class.is-invalid]="stationa.invalid && stationa.touched">
+          <small class="text-danger" [class.d-none]="stationa.valid || stationa.untouched">feild is required</small>   
+      </div>    
+    </div>
+      
+      <div class="form-group row">
+          <label class="col-lg-5">Type of Associate</label>
+          <div class="col-lg-7">
+          <select class="custom-select" required #typea="ngModel"  [(ngModel)]="userModel.typeofassociate" name="TypeOfAssociate" [class.is-invalid]="typea.invalid && typea.touched">
+             <option *ngFor="let associate of associates">{{associate}}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="typea.valid || typea.untouched">feild is required</small>   
+      </div>
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">Type of calculation</label>
+          <div class="col-lg-7">
+          <select class="custom-select" required #typec="ngModel"  [(ngModel)]="userModel.typeofcalculation" name="TypeOfCalculation" [class.is-invalid]="typec.invalid && typec.touched">
+             <option *ngFor="let cobject of cobjects">{{cobject}}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="typec.valid || typec.untouched">feild is required</small>   
+      </div>
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">SLSP Templates</label>
+          <div class="col-lg-7">
+          <select class="custom-select" required #slspt="ngModel"  [(ngModel)]="userModel.slsptemplates" name="SLSPtemplates" [class.is-invalid]="slspt.invalid && slspt.touched">
+             <option *ngFor="let template of SLSPtemplates">{{template}}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="slspt.valid || slspt.untouched">feild is required</small>   
+      </div>
+    </div>
+  
+      
+      <div class="form-group row">
+          <label class="col-lg-5">Vehicles Used</label>
+          <div class="col-lg-7">
+          <select class="custom-select" required #vehiclesu="ngModel"  [(ngModel)]="userModel.vehicleused" name="VehiclesUsed" [class.is-invalid]="vehiclesu.invalid && vehiclesu.touched">
+             <option *ngFor="let one of vehicles">{{one}}</option>
+          </select>
+          <small class="text-danger" [class.d-none]="vehiclesu.valid || vehiclesu.untouched">feild is required</small>   
+      </div>
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">Total Small rate including incentives</label>
+          <div class="col-lg-7"> 
+          <input type="text" required #tsr="ngModel"  pattern="\d{1,10000000}$" name="TotalSmallRate"  [(ngModel)]="userModel.totalsmallrate" class="form-control" [class.is-invalid]="tsr.invalid && tsr.touched">
+          <small class="text-danger" [class.d-none]="tsr.valid || tsr.untouched">feild is required and should be numeric</small> 
+      </div>    
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">Total Large rate including incentives</label>
+          <div class="col-lg-7">
+          <input type="text" required #tlr="ngModel"  pattern="\d{1,10000000}$" name="TotalLargeRate"  [(ngModel)]="userModel.totallargerate" class="form-control" [class.is-invalid]="tlr.invalid && tlr.touched">
+          <small class="text-danger" [class.d-none]="tlr.valid || tlr.untouched">feild is required and should be numeric</small>   
+      </div>    
+      </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">Total Pickup rate including incentives</label>
+          <div class="col-lg-7">
+          <input type="text" required #tpr="ngModel"  pattern="\d{1,10000000}$" name="TotalPickupRate"  [(ngModel)]="userModel.totalpickuprate" class="form-control" [class.is-invalid]="tpr.invalid && tpr.touched">
+          <small class="text-danger" [class.d-none]="tpr.valid || tpr.untouched">feild is required and should be numeric</small>   
+      </div>    
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5">Reasons for paying rate more than approved rate</label>
+          <div class="col-lg-7">
+          <select #reason="ngModel" class="custom-select"  [(ngModel)]="userModel.reasons" name="Reasons">
+             <option *ngFor="let one of foptions">{{one}}</option>
+          </select>
+      </div>
+    </div>
+  
+      <div class="form-group row">
+          <label class="col-lg-5" for="remark">Remarks if any - (if incentives are different than standard provide details in remark)</label>
+          <div class="col-lg-7">
+          <textarea class="form-control" rows="5" [(ngModel)]="userModel.remarks" name="remarkd" id="remarks"></textarea>
+        </div>
+        </div>
+        <p align="right">
+            <button class="btn submit-btn btn-dark" style='margin-right:8px' (click)="this.reset()">Reset</button>
+            <button class="btn submit-btn btn-dark" [disabled]="userform.form.invalid">Submit</button>
+            </p>
+  </form>  
+  </div>
+  </div>
+  <div class="col-lg-3">
+    </div>
+    
+  </div>
+  </div>

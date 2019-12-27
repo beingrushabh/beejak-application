@@ -1,0 +1,54 @@
+
+
+.table1{
+    font-size: small;
+    width: fit-content;
+    border-collapse: collapse;
+}
+
+
+[scroll-glue-right]{
+    overflow-x: auto;
+}
+
+.filter_list{
+    padding: 5px;
+}
+
+.btn-filter-menu{
+    opacity: 70% !important;
+    font-size: small;
+    margin: 5px;
+    width: fit-content;
+    
+}
+
+
+.filter_list{
+    font-size: 15px;
+
+}
+
+.filter-input.ng-star-inserted{
+    visibility: hidden !important;
+    display: none;
+}
+
+.list-group{
+    /* width: fit-content !important; */
+    height: fit-content !important;
+    font-size: 15px !important;
+
+}
+.list-inline{
+    border: black !important;
+}
+
+
+.table-filter{
+    font-size: 12px !important;
+    border-radius: 12px !important;
+    width: fit-content;
+    font-weight: lighter;
+
+}

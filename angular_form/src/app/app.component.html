@@ -1,0 +1,33 @@
+<div class="container home">
+<div class="row">
+<h1 class="col-lg-9">ELASTIC RUN</h1>
+<a [routerLink]="routing_link" *ngIf="loggedin" class=" col-lg-3">
+<button id="newForm" class="btn btn-dark" [disabled]="!loggedin" (click)="toggleForm()">{{head1}}</button>
+</a>
+</div>
+<hr>
+<form class="row" ngForm *ngIf="!loggedin" class="form-small form-login">
+    <div class="form-group row col-lg-6">
+    <label class="col-lg-4" >Username </label>
+    <input class="col-lg-4" type="text" required name="username" [(ngModel)]="loginModel.username" >
+    </div>
+    <div class="row col-lg-6 form-group">
+    <label class="col-lg-4">Password </label>
+    <input class="col-lg-4" type="password" required name="password" [(ngModel)]="loginModel.password" >    
+</div>
+<p align="right col-lg-6">
+    <button class="row btn btn-dark  submit-home" (click)="this.login()">submit</button>
+    </p> 
+</form>
+
+<div class="login_toast">
+    
+</div>
+<!-- <div class="row" *ngIf="loggedin">
+    <app-form  *ngIf="formUp && loggedin"></app-form>
+    <app-list scroll-glue-right *ngIf="!formUp && loggedin"></app-list> 
+</div> -->
+
+</div> 
+
+<router-outlet></router-outlet> 
